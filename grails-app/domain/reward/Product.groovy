@@ -8,5 +8,8 @@ class Product {
     static hasMany=[orderItems:OrderItem];
 
     static constraints = {
+        name();
+        sku();
+        price();
     }
 }
