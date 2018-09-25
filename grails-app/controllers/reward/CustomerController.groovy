@@ -88,4 +88,15 @@ class CustomerController {
         customer.delete(flush:true)
         redirect(action:"index")
     }
+
+    def profile(){
+        println("debug:"+params.phone)
+        def customerInstance= Customer.findByPhone(params.id)
+        [customerInstance:customerInstance]
+    }
+
+    def updateProfile(Customer customerInstance){
+        customerInstance.save(flush: true, failOnError: true)
+        render(view: "profile", model:[customerInstance: customerInstance])
+    }
 }
